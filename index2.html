@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Mea Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+        .content {
+            padding: 2em;
+        }
+        .comments {
+            margin-top: 2em;
+        }
+        .comments textarea {
+            width: 100%;
+            height: 100px;
+        }
+        .comments button {
+            display: block;
+            margin-top: 1em;
+        }
+        .contact-form {
+            margin-top: 2em;
+        }
+        .contact-form input, .contact-form textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 1em;
+            padding: 0.5em;
+        }
+        .chat-box {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 1em;
+            display: none;
+        }
+        .chat-header {
+            background-color: #444;
+            color: white;
+            padding: 0.5em;
+            cursor: pointer;
+        }
+        .chat-content {
+            margin-top: 1em;
+        }
+        .chat-content input, .chat-content textarea {
+            width: 100%;
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pagina Mea Web</h1>
+    </header>
+    <nav>
+        <a href="#home">Acasă</a>
+        <a href="#about">Despre</a>
+        <a href="#services">Servicii</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="content">
+        <h2>Secțiunea Principală</h2>
+        <p>Aici este conținutul principal al paginii tale web.</p>
+        <img src="imagine.jpg" alt="O imagine exemplu">
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Browserul tău nu suportă elementul video.
+        </video>
+        <div class="comments">
+            <h3>Comentarii</h3>
+            <textarea placeholder="Scrie un comentariu..."></textarea>
+            <button>Trimite</button>
+        </div>
+        <div class="contact-form">
+            <h3>Formular de Contact</h3>
+            <input type="text" placeholder="Nume">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Mesaj"></textarea>
+            <button>Trimite</button>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Pagina Mea Web. Toate drepturile rezervate.</p>
+    </footer>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header" onclick="toggleChat()">Chat cu noi!</div>
+        <div class="chat-content">
+            <input type="text" id="chatName" placeholder="Nume">
+            <input type="email" id="chatEmail" placeholder="Email">
+            <textarea id="chatMessage" placeholder="Mesaj"></textarea>
+            <button onclick="sendMessage()">Trimite</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            var chatBox = document.getElementById('chatBox');
+            if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+                chatBox.style.display = 'block';
+            } else {
+                chatBox.style.display = 'none';
+            }
+        }
+
+        function sendMessage() {
+            var name = document.getElementById('chatName').value;
+            var email = document.getElementById('chatEmail').value;
+            var message = document.getElementById('chatMessage').value;
+            if (name && email && message) {
+                alert('Mesaj trimis! Nume: ' + name + ', Email: ' + email + ', Mesaj: ' + message);
+                // Aici poți adăuga cod pentru a trimite datele către server
+            } else {
+                alert('Te rog completează toate câmpurile.');
+            }
+        }
+    </script>
+</body>
+</html>
